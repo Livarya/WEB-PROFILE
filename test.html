@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - Yandika Livarya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2b2b2b, #121212); /* Dark gradient background */
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #1c1c1c, #121212);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar a {
+            color: #e0e0e0;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #f9a825; /* Golden accent on hover */
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1c1c1c, #121212);
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            position: relative;
+            animation: fadeIn 1s ease;
+        }
+
+        header .profile-image {
+            width: 250px;  /* Increase size */
+            height: 250px; /* Increase size */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header .profile-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #f1f5f8;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: #b0bec5;
+            letter-spacing: 1px;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #333333, #444444); /* Subtle dark gradient */
+            border-radius: 10px;
+            padding: 30px;
+            color: #e0e0e0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #f9a825; /* Golden title color */
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Skills and Experience */
+        .skills, .experience {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skills li, .experience li {
+            background-color: #555555;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skills li:hover, .experience li:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills li i, .experience li i {
+            margin-right: 10px;
+            color: #f9a825; /* Golden icon color */
+        }
+
+        /* Portfolio */
+        .portfolio-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background-color: #555555;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.8rem;
+            color: #f9a825; /* Golden text */
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            font-size: 1rem;
+            color: #b0bec5;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-item a {
+            font-size: 1.2rem;
+            color: #f9a825;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .portfolio-item a:hover {
+            color: #f4f4f4;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        footer a {
+            color: #f4f4f4;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <ul>
+        <li><a href="#about">Tentang Saya</a></li>
+        <li><a href="#skills">Keterampilan</a></li>
+        <li><a href="#experience">Pengalaman Kerja</a></li>
+        <li><a href="#portfolio">Portofolio</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
+</div>
+
+<header>
+    <img src="112.jpg" alt="Foto Profil Yandika Livarya" class="profile-image">
+    <div>
+        <h1>Yandika Livarya</h1>
+        <p>Web Developer | UI/UX Designer | Digital Strategist</p>
+    </div>
+</header>
+
+<div class="container">
+    <section id="about" class="section">
+        <h2>Tentang Saya</h2>
+        <p>Saya adalah seorang pengembang web dan desainer UI/UX yang bersemangat dalam menciptakan solusi kreatif dan fungsional untuk masalah dunia nyata...</p>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Keterampilan</h2>
+        <ul>
+            <li><i class="fas fa-code"></i> HTML, CSS, JavaScript</li>
+            <li><i class="fas fa-cogs"></i> React, Node.js</li>
+            <li><i class="fas fa-paint-brush"></i> UI/UX Design</li>
+            <li><i class="fas fa-database"></i> MongoDB, SQL</li>
+        </ul>
+    </section>
+
+    <section id="experience" class="section">
+        <h2>Pengalaman Kerja</h2>
+        <ul>
+            <li><strong>Senior Web Developer</strong> - PT Smooets <br><small>2022 - Sekarang</small><p>Mengembangkan dan memelihara aplikasi web dengan menggunakan React, Node.js, dan MongoDB.</p></li>
+            <li><strong>UI/UX Designer</strong> - PT Digital Nexus <br><small>2020 - 2022</small><p>Desain antarmuka dan pengalaman pengguna untuk berbagai aplikasi web dan mobile.</p></li>
+        </ul>
+    </section>
+
+    <section id="portfolio" class="section">
+        <h2>Portofolio</h2>
+        <div class="portfolio-items">
+            <div class="portfolio-item">
+                <img src="portfolio1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Deskripsi singkat tentang proyek 1 yang telah saya kerjakan.</p>
+                <a href="#">Lihat Detail</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="portfolio2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Deskripsi singkat tentang proyek 2 yang telah saya kerjakan.</p>
+                <a href="#">Lihat Detail</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="portfolio3.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Deskripsi singkat tentang proyek 3 yang telah saya kerjakan.</p>
+                <a href="#">Lihat Detail</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Kontak</h2>
+        <p>Email: <a href="mailto:yandikalivaryaaa@gmail.com">yandikalivaryaaa@gmail.com</a></p>
+        <p>LinkedIn: <a href="#">[LinkedIn Anda]</a></p>
+        <p>Telepon: 081122222302</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Yandika Livarya. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
